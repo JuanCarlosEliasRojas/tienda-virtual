@@ -1,7 +1,8 @@
 async function login(){
     let usuario = document.getElementById("user").value;
     let password = document.getElementById("pass").value;
-    if(usuario == null || usuario.lenght == 0 ||/^\s+$/.test(usuario)){
+
+    if(usuario == null || usuario.length == 0 || /^\s+$/.test(usuario)){
         alertify.error('Error campo usuario vacio');
         return false;
     }else{
@@ -27,7 +28,7 @@ async function login(){
   
     const data = await url.json();
     console.log(data.token);
-    if (data.token != "Usuario no autenticado.") {
+    if (data.token != "Usuario no autenticado") {
         localStorage.setItem('token',JSON.stringify(data.token)) 
         window.location="./index.html"; 
     } else {
