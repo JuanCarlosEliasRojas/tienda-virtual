@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Index Presupuestos</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="/front/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+  <!-- Custom styles for this template-->
+  <link href="/front/css/sb-admin-2.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  <!-- Default theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+  <!-- Semantic UI theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+  <!-- Bootstrap theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+  
+  <!-- 
+      RTL version
+  -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.rtl.min.css"/>
+  <!-- Default theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.rtl.min.css"/>
+  <!-- Semantic UI theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.rtl.min.css"/>
+  <!-- Bootstrap theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.rtl.min.css"/>
+  
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+     
+   
+
+  
+      <button id="btnNuevo" class="btn btn-dark btn-rounded" type="button"  onclick="location.href='./nuevo.html'"><i
+          class="fas fa-plus-circle"></i> Nuevo presupuesto</button>
+          <button id="btnNuevo" class=" btn btn-success" type="button" onclick="location.href='./editar.html'"><i
+            class="fas fa-plus-circle"></i> Editar</button>
+          
+          
+          <button id="btnEliminar" class="w-40 btn btn-danger  btnEliminar" type="button" data-toggle="modal" data-target="#modalEliminar"><i class="fas fa-trash-alt"></i>Eliminar</button>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+    </ul>
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                <img class="img-profile rounded-circle" src="data:image/png;base64,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">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <div class="container">
+            <main>
+              <div class="py-5 text-center">
+                <h2>Presupuestos</h2>
+              </div>
+
+
+              <div class="row 3">
+                <div class="col-12">
+                  <h4 class="mb-3">Tabla de presupuestos</h4>
+                  <div class="container" id="contPresupuestos">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">ID presupuesto</th>
+                          <th scope="col">Fecha de creación</th>
+                          <th scope="col">Proyecto</th>
+                          <th scope="col">Versiones</th>
+                        
+                        </tr>
+                      </thead>
+                      <tbody class="mPresupuestos">
+                        <!-- Productos -->
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <button id="btnEnviar" class="w-40 btn btn-warning btn-lg btnEnviar" type="button" data-toggle="modal"
+                    data-target="#modalEnviar"><i class="fas fa-paper-plane"></i> Enviar</button>
+                </div>
+              </div>
+            </main>
+
+
+            <div class="modal" tabindex="-1" role="dialog" id="modalEnviar">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Enviar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Confirme el envío de la información.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="aceptarEnv()">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+    
+
+            <div class="modal" tabindex="-1" role="dialog" id="modalEliminar">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Eliminar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>¿Desea eliminar este presupuesto?</p>
+                    <label for="idEliminar" class="form-label">Ingrese el ID del presupuesto a eliminar</label>
+                    <input type="number" class="form-control" id="idBudget" placeholder="ID" value="">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="aceptarElim()">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+          <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Your Website 2021</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de salir?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Seguro que desea Cerrar su sesion.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="/front/html/login.html" >Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../jsstyle/jquery.min.js"></script>
+    <script src="../jsstyle/bootstrap.bundle.min.js"></script>
+
+
+
+    <!-- Custom scripts for all pages-->
+    <script src="../jsstle/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../jsstyle/Chart.min.js"></script>
+
+    <script src="../js/index.js"></script>
+    <script src="../js/presupuestocrud.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    
+
+</body>
+
+</html>

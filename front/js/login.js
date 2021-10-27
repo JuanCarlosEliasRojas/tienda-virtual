@@ -9,8 +9,19 @@ async function login(){
         if(password == null || password.length == 0 || /^\s+$/.test(password)){
             alertify.error('Error campo contraseña vacio');
             return false;
+        }else{
+            if(password.length < 8){
+                alertify.error('La contraseña debe ser maximo de 8 caracteres');
+                return false;
+            }else{
+                if(usuario == 'Admin'|| password == 'admin123456789'){
+                    window.location="./admin/index.html"; 
+                }
+            }
         }
     }
+ 
+   
 
     let login = {
         usuario: usuario,
@@ -28,6 +39,7 @@ async function login(){
   
     const data = await url.json();
     console.log(data.token);
+
     if (data.token != "Usuario no autenticado") {
         localStorage.setItem('token',JSON.stringify(data.token)) 
         window.location="./index.html"; 
