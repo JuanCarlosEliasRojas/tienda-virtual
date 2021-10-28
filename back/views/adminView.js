@@ -9,5 +9,10 @@ module.exports = async(app)=>{
         let producto=req.body;
         res.send(await adminController.createProducto(producto));
     });
+
+    app.post('/modificar',async(req,res)=>{
+        let producto = req.body;
+        res.send(await adminController.updateProducto(producto));
+    })
 }
 

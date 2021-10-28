@@ -16,3 +16,14 @@ module.exports.createProducto = async(producto)=>{
         return "prducto no creado";
     }
 }
+
+
+module.exports.updateProducto = async(producto)=>{
+    let response = new adminModel();
+    let result = await response.update(producto);
+    if(result != ''){
+        return "Producto modificado";
+    }else{
+        return "El Producto no exite"
+    }
+}
