@@ -125,92 +125,58 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-          <div class="container">
-            <main>
-              <div class="py-5 text-center">
-                <h2>Productos</h2>
-              </div>
-
-
-              <div class="row 3">
-                <div class="col-12">
-                  <h4 class="mb-3">Productos de la tienda</h4>
-                  <div class="container" id="contPresupuestos">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Numero de Registro</th>
-                          <th scope="col">Nombre</th>
-                          <th scope="col">Categoria</th>
-                          <th scope="col">Precio</th>
-                          <th scope="col">Cantidad</th>
-                          <th scope="col">Descripcion</th>
-                    
-                        
-                        </tr>
-                      </thead>
-                      <tbody class="tabla_productos">
-                        <!-- Productos -->
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <button id="btnEnviar" class="w-40 btn btn-warning btn-lg btnEnviar" type="button" data-toggle="modal"
-                    data-target="#modalEnviar"><i class="fas fa-paper-plane"></i> Enviar</button>
+        <section class="py-5 bg-primary">
+            <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                        <h5>Nuevo Producto</h5>
+                                        <hr>
+                                        <div class="form-group">
+                                    
+                                            <div class="form-group">
+                                              <input type="text" class="form-control" placeholder="Codigo de producto" id="id">
+                                            </div>
+                                            <div class="form-group">
+                                              <input type="text" class="form-control" placeholder="Nombre" id="nombe">
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-4 mb-3 mb-sm-0">
+                                                    <input type="number" class="form-control form-control-user" id="categoria"
+                                                        placeholder="Categoria">
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control form-control-user" id="precio"
+                                                        placeholder="Precio">
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <input type="number" class="form-control form-control-user" id="cantidad"
+                                                        placeholder="Cantidad">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Descripcion" id="description">
+                                              </div>
+                                            
+                                            <div class="form-group">
+                                                <button type="button" class=" btn-lg btn-block btn-outline-dark" onclick="producto()"><i class="far fa-user-circle"> </i> Añadir</button>
+                                            </div>
+                                          </form>
+                                         
+                            
+                                        </div>
+                            
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </main>
-
-
-            <div class="modal" tabindex="-1" role="dialog" id="modalEnviar">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Enviar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Confirme el envío de la información.</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="aceptarEnv()">Aceptar</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  </div>
-                </div>
-              </div>
             </div>
-
-    
-
-            <div class="modal" tabindex="-1" role="dialog" id="modalEliminar">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Eliminar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>¿Desea eliminar este presupuesto?</p>
-                    <label for="idEliminar" class="form-label">Ingrese el ID del presupuesto a eliminar</label>
-                    <input type="number" class="form-control" id="idBudget" placeholder="ID" value="">
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="aceptarElim()">Aceptar</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-
-          </div>
+        </div>
+        </section>
           <!-- /.container-fluid -->
 
         </div>
