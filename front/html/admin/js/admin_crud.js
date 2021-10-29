@@ -24,3 +24,22 @@ function tablaProductos(){
     getProductos();
 }
 tablaProductos();
+
+async function aceptarElim(){
+    const id = document.getElementById("idBudget");
+     const idBudget = String(id.value);
+
+       let url = await fetch('http://localhost:3000/deleteProducto/' +idBudget,{
+          method:"DELETE"
+                 });
+
+            const data = await url.text();
+             console.log(data)
+             if(data != "El producto no existe"){
+                alert('Producto eliminado');
+                window.location="./index.html";
+             }else{
+                 alert('El registro no exite  y/o ya fue eliminado');
+                 window.location="./index.html";
+        }
+}

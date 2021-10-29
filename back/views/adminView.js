@@ -14,5 +14,10 @@ module.exports = async(app)=>{
         let producto = req.body;
         res.send(await adminController.updateProducto(producto));
     })
-}
+
+    app.delete('/deleteProducto/:id',async(req,res)=>{
+        let id = req.params.id
+        res.send(await adminController.deleteProducto(id));
+    })
+};
 

@@ -24,4 +24,14 @@ module.exports = class adminModel{
             return " ";
         }
     }
+
+    async delete (id){
+        let result = await sequelize.query("SELECT * FROM productos WHERE id = " + id);
+        if(result[0][0] != undefined){
+            let result = await sequelize.query("DELETE FROM productos WHERE id = " + id);
+            return result;
+        } else {
+            return "";
+        }
+    }
 }

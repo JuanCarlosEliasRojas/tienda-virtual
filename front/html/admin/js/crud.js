@@ -1,3 +1,5 @@
+
+
 function producto(){
     async function new_producto(){
             let id= document.getElementById('id').value;
@@ -137,3 +139,6 @@ function producto(){
      }
     
      modificacion();
+
+
+    

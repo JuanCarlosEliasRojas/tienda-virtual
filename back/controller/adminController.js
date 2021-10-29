@@ -26,4 +26,14 @@ module.exports.updateProducto = async(producto)=>{
     }else{
         return "El Producto no exite"
     }
+    
+}
+module.exports.deleteProducto = async (id) => {
+    let response = new adminModel();
+    let result = await response.delete(id);
+    if (result != '') {
+        return "Producto eliminado.";
+    } else {
+        return "El producto no existe"
+    }
 }
