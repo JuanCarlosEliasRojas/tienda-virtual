@@ -5,7 +5,7 @@ module.exports = class compraModel{
     }
 
     async create(compra){
-        let result = await sequelize.query("INSERT INTO ticket (usuario,ciudad) VALUES ('"+compra.usuario+"','"+compra.ciudad+"');");
+        let result = await sequelize.query("INSERT INTO ticket (usuario,cuidad) VALUES ('"+compra.usuario+"','"+compra.cuidad+"');");
         return result;
     }
 

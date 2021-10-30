@@ -8,7 +8,7 @@ module.exports = async(app)=>{
         res.send(resp);
     });
 
-    app.get('/compra/:usuario',async(req,res)=>{
+    app.get('/compra/:user',async(req,res)=>{
         let usuario = req.params.usuario
         let resp = await compraController.infoPerfil(usuario);
         console.log(resp);

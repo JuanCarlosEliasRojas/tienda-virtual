@@ -1,19 +1,24 @@
 async function compra(){
     let token = JSON.parse(localStorage.getItem('token'));
-    let token_decoded= JSON.parse(window.atob(token.split('.')[1]));
+    let token_decoded = JSON.parse(window.atob(token.split('.')[1])); 
+
     let usuario = token_decoded.data.usuario;
-    let ciudad= document.getElementById("direccion").value;
-
-    if(ciudad == null || ciudad.length == 0 || /^\s+$/.test(ciudad)){
-        alertify.error('Error campo direccion no llenado');
+    
+    let cuidad = document.getElementById("direccion").value;
+   
+  
+    if(cuidad == null || cuidad.length == 0 || /^\s+$/.test(cuidad)){
+        alertify.error('Error campo cuidad no llenado');
             return false;
-    }
 
+      
+      }
+    
+   
     let compra = {
         usuario:usuario,
-       ciudad:ciudad
-
-    };
+        cuidad:cuidad
+    };   
     let url = await fetch('http://localhost:3000/compra', {
         method: "POST",
         mode: "cors",
@@ -23,59 +28,63 @@ async function compra(){
         },
         body: JSON.stringify(compra),
     });
-    
+    //Regreso de la respuesta
     const data = await url.text();
     console.log(data)
-    if(data != "Compra no hecha"){
-        alertify
-        .alert("Compra hecha exitosa mente.", function(){
-         alertify.message('OK');
-       });
-    }else{
-        alert("Error al procesar compra")
+    if (data != "Perfil no creado.") {
+      alertify
+      .alert("Compra realizada.", function(){
+       alertify.message('OK');
+       window.location="./index.html"; 
+     });
+    } else {
+        alert("Los datos no pudieron guardarse correctamente.")
     }
-
 }
 
-
-async function mostratInfo(){
+async function mostrarInf(){
     let token = JSON.parse(localStorage.getItem('token')); 
     let tokenDecoded = decodeURIComponent(window.atob(token.split('.')[1]).split('').map(function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join('')); 
     let token_decoded = JSON.parse(tokenDecoded); 
-    const usuario = String(token_decoded.data.usuario); 
+    const user = String(token_decoded.data.usuario); 
 
     const nombre = document.getElementById("nombre");
-    const primer_ap = document.getElementById("primer_ap");
-    const segundo_ap = document.getElementById("segundo_ap");
+    const apellido_p = document.getElementById("primer_ap");
+    const apellido_s = document.getElementById("segundo_ap");
     const correo = document.getElementById("correo");
-
     nombre.value = token_decoded.data.nombre;
-    primer_ap.value = token_decoded.data.primer_ap;
-    segundo_ap.value = token_decoded.data.segundo_ap;
+    apellido_p.value = token_decoded.data.primer_ap;
+    apellido_s.value = token_decoded.data.segundo_ap;
     correo.value = token_decoded.data.correo;
 
-    let url = await fetch('http://localhost:3000/compra/'+ usuario,{
+    let url = await fetch('http://localhost:3000/compra/'+ user , {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
       
         },
     });
-
+    
     const data = await url.json(url);
     console.log(data)
-    if(data.noExiste != "Informacion incompleta"){
-        const ciudad = document.getElementById("direccion");
-        ciudad.value=data.ciudad;
-
-
-    }else{
-        alertify
-      .alert("Para finalizar la compra ingresa la direccion", function(){
+    if (data.noExiste != "La información del usuario no existe.") {
+       
+       
+        const cd = document.getElementById("cuidad");
+       
+      
+        cd.value = data.cuidad;
+     
+        
+    } else {
+      alertify
+      .alert("La información del perfil no existe, debe llenar los campos para guardar su información.", function(){
        alertify.message('OK');
      });
     }
 }
-mostratInfo();
+
+
+mostrarInf();

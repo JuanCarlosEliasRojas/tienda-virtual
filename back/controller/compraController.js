@@ -16,6 +16,7 @@ module.exports.infoPerfil=async(usuario)=>{
     if(result){
         return result;
     }else{
-        return ({'noExiste': "Informacion incompleta"});
+       
+        return ({'noExiste': "La información del usuario no existe."});
     }
 }
