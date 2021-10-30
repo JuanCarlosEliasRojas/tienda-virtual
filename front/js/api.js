@@ -159,3 +159,14 @@ simpleCart({
 
 });
 
+async function logOut(){
+    let token = await JSON.parse(localStorage.getItem('token')); //Obtencion del token
+    if (token != undefined) {
+        localStorage.removeItem('token');
+        alert("Ha cerrado sesión");
+        window.location="./index.html";
+    } else{
+        alert("Su sesión ha caducado.");
+        window.location="./index.html";
+    }
+}
