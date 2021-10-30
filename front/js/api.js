@@ -29,23 +29,26 @@ $(document).ready(() => {
             crossDomain: true,
             datatype: 'json',
             success: function (response) {
-                for (var i = 0; i <= 13; i++) {
+                for (var i = 0; i <= 11; i++) {
                     var photo = response.results[i].thumbnail;
                     console.log(photo);
 
                     var titleProduct = response.results[i].title;
                     var priceProduct = '$' + '' + response.results[i].price;
-                    var template = `<div class="card" style="width: 18rem; margin-top: 20px;">
-                          <div class="card-body">
-                              <img class="card-img-top" style="width: 10rem;" src="${photo}" alt="Card image cap">
-                              <h5 class="card-title">${titleProduct}</h5>
-                              <p class="card-text">${priceProduct}</p>
-                              <button id="btnGuardar" class="w-40 btn btn-primary btn-lg btnGuardar" style="margin-left: 20px;" type="button" onclick="guardar()"><i
-                              class="far fa-save"></i> Guardar</button>
-                          
-                              <div id="paypal-button"></div>                          
-                          </div>
-                       </div>`;
+                    var template = `
+                    <div class="col-md-6 col-lg-4 simpleCart_shelfItem">
+       
+                    <h6 class="item_name">${titleProduct}</h6>
+                  
+                    <img class="item_image" style="width: 150px;" src="${photo}" alt="Auto Azul"/>
+               
+                    <input class="item_Quantity" type="number" min="1" max="10" value="1"/>
+                   
+                    <div class="item_price">${priceProduct}</div>
+                   
+                    <a class="item_add" href="javascript:;"> Añadir al carrito </a>
+            
+                  </div>`;
 
                     $('#index').append(template);
                 };
@@ -72,7 +75,8 @@ $(document).ready(() => {
 
                     var titleProduct = response.results[i].title;
                     var priceProduct = '$' + '' + response.results[i].price;
-                    var template = `<div class="card" style="width: 18rem; margin-top: 20px;">
+                    var template = `
+                    <div class="card" style="width: 18rem; margin-top: 20px;">
                           <div class="card-body">
                               <img class="card-img-top" style="width: 10rem;" src="${photo}" alt="Card image cap">
                               <h5 class="card-title">${titleProduct}</h5>
@@ -127,5 +131,31 @@ productos();
 
 });
 
+
+$(document).ready(function($) {
   
+    $('.carrito-total').click(function() {
+   
+      $('.bolsa').slideToggle();
+    });
+
+  });
+
+//SIMPLE CART
+simpleCart({
+  cartColumns: [
+      { view:'image' , attr:'image', label: "Imagen"}, //obtiene la imagen
+      { attr: "name", label: "Name"}, //obtiene el nombre
+      { view: "currency", attr: "price", label: "Price"},//obtiene el precio
+      { view: "decrement", label: "-"}, //Resta el producto
+      { attr: "quantity", label: "Qty"}, //obtiene la cantidad del producto
+      { view: "increment", label: "+"}, //Suma el producto
+      { view: "currency", attr: "total", label: "SubTotal" },// Obtiene el precio total del producto
+      { view: "remove", text: "Quitar", label: false} //Quita o remueve el producto
+  ],
+
+  cartStyle: "table", 
+
+
+});
 

@@ -32,48 +32,7 @@
                 </div>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="product.html">Productos</a></li>
-                <li>
-                    <a href="" class="desktop-item">Categorias <span><i class="fas fa-chevron-down"></i></span></a>
-                    <input type="checkbox" id="showMega" />
-                    <label for="showMega" class="mobile-item">Shop <span><i class="fas fa-chevron-down"></i></span></label>
-                    <div class="mega-box">
-                        <div class="content">
-                            <div class="row">
-                                <img src="../res/imgs/nav.png" alt="" />
-                            </div>
-                            <div class="row">
-                                <header>Shop Layout</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Shop With Background</a></li>
-                                    <li><a href="#">Shop Mini Categories</a></li>
-                                    <li><a href="#">Shop Only Categories</a></li>
-                                    <li><a href="#">Shop Icon Categories</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Filter Layout</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Sidebar</a></li>
-                                    <li><a href="#">Filter Default</a></li>
-                                    <li><a href="#">Filter Drawer</a></li>
-                                    <li><a href="#">Filter Dropdown</a></li>
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <header>Product Layout</header>
-                                <ul class="mega-links">
-                                    <li><a href="#">Layout Zoom</a></li>
-                                    <li><a href="#">Layout Sticky</a></li>
-                                    <li><a href="#">Layout Sticky 2</a></li>
-                                    <li><a href="#">Layout Scroll</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-
-
+               
                 <li>
                     <a href="register.html" class="desktop-item">Register <span><i class="fas fa-chevron-down"></i></span></a>
                     <input type="checkbox" id="showdrop2" />
@@ -85,15 +44,7 @@
                     </ul>
                 </li>
                 <!-- icons -->
-                <li class="icons">
-                    <a href="cart.html">
-                        <span>
-            <img src="../res/imgs//cart.png" alt="" />
-            <small class="count d-flex">0</small>
-          </span>
-                    </a>
-
-                </li>
+               
             </ul>
             <label for="" class="btn open-btn"><i class="fas fa-bars"></i></label>
         </div>
@@ -150,7 +101,26 @@
         </div>
     </div>
     </section>
+    <div class="col-sm-3">
+        
+        <div class='carrito'>
+          
+          <p class="carrito-total">
+            <span class="simpleCart_quantity">0</span> item(s) <span class="simpleCart_total">$0.00</span>
+          </p>
 
+          <div class="bolsa">
+            <div class="simpleCart_items"></div>
+            <div class="opciones">
+              <a class="boton simpleCart_empty" href="javascript:void(0)">Vaciar carrito</a>
+              <a class="boton simpleCart_checkout" href="#">Checkout</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- New Products -->
     <section class="section products">
         <div class="title">
@@ -160,10 +130,14 @@
 
         <section>
       
-            <div class="caja" id="index"></div>
+            <div class="caja" id="index">
+
+            </div>
          </section>
     </section>
+    
     <!--  -->
+    
 
     <!-- Footer -->
     <footer id="footer" class="section footer">
@@ -202,10 +176,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.7.5/swiper-bundle.min.js"></script>
     <!-- Custom Scripts -->
 <script src ="../js/jquery.min.js"></script>
-
+  <script src="../js/simpleCart.min.js"></script>
     <script src="../js/slider.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/api.js"></script>
+  
     
 </body>
 
