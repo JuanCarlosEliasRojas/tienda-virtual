@@ -2,16 +2,16 @@ async function compra(){
     let token = JSON.parse(localStorage.getItem('token'));
     let token_decoded= JSON.parse(window.atob(token.split('.')[1]));
     let usuario = token_decoded.data.usuario;
-    let direccion = document.getElementById("direccion").value;
+    let ciudad= document.getElementById("direccion").value;
 
-    if(direccion == null || direccion.length == 0 || /^\s+$/.test(direccion)){
+    if(ciudad == null || ciudad.length == 0 || /^\s+$/.test(ciudad)){
         alertify.error('Error campo direccion no llenado');
             return false;
     }
 
     let compra = {
         usuario:usuario,
-        direccion:direccion
+       ciudad:ciudad
 
     };
     let url = await fetch('http://localhost:3000/compra', {
@@ -67,8 +67,10 @@ async function mostratInfo(){
     const data = await url.json(url);
     console.log(data)
     if(data.noExiste != "Informacion incompleta"){
-        const direccion = document.getElementById("direccion");
-        direccion.value=data.direccion;
+        const ciudad = document.getElementById("direccion");
+        ciudad.value=data.ciudad;
+
+
     }else{
         alertify
       .alert("Para finalizar la compra ingresa la direccion", function(){
